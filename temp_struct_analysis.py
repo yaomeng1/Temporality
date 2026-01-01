@@ -117,26 +117,6 @@ if __name__ == "__main__":
         static_matrix = pickle.load(f)
     # with open("./comp_fc_fix/sf_200_k6_4.pk", 'rb') as f:
     #     static_matrix = pickle.load(f)
-    # average_size_list = []
-    # for p in np.arange(0.3, 1.01, 0.05):
-    #
-    #     sub_matrix_list = subnet_generate(static_matrix, snapshot=1000, p=p)
-    #     comp_size_array = np.zeros([len(sub_matrix_list), static_matrix.shape[0]])
-    #     for i in range(len(sub_matrix_list)):
-    #         comp_list = snap_struct(sub_matrix_list[i])
-    #         comp_size = np.array([len(comp) for comp in comp_list])
-    #         comp_size_array[i, :len(comp_size)] = comp_size
-    #
-    #     average_size_list.append(np.mean(comp_size_array, axis=0))
-    #
-    # average_size_p = np.stack(average_size_list, axis=1)
-    #
-    # scio.savemat(path + "temp_rr_comp.mat", {"ave_size_rr": average_size_p})
-    # graph = nx.from_numpy_matrix(subnet_mat[0])
-    # deg = list(graph.degree())
-    # deg_array = np.array(list(zip(*deg))[1])
-    # frequency, x = np.histogram(deg_array, bins=10, range=(1, np.max(deg_array)))
-    # plt.bar(x[:-1], frequency)
     for p in np.arange(0.5, 0.525, 0.05):
         sub_matrix_list = subnet_generate(static_matrix, snapshot=100, p=p)
         temp_mat = np.stack(sub_matrix_list)
@@ -144,3 +124,4 @@ if __name__ == "__main__":
         temp_mat_giant = temp_mat_giant.astype(np.float_)
 
         scio.savemat("./sf_200_k6_4_p" + str(1000 * p)[0:3] + "_snapmatrix.mat", {"matrix_snap": temp_mat_giant})
+
