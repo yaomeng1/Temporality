@@ -24,12 +24,12 @@ if __name__ == "__main__":
     snap_length = 100
 
     # %% ------- static network generate -------
-    # graph = nx.random_graphs.barabasi_albert_graph(nodesnum, k // 2)
-    # graph = nx.random_graphs.random_regular_graph(k, nodesnum)
-    # mAdj = nx.to_numpy_array(graph)
+    graph = nx.random_graphs.barabasi_albert_graph(nodesnum, k // 2)
+    graph = nx.random_graphs.random_regular_graph(k, nodesnum)
+    mAdj = nx.to_numpy_array(graph)
 
-    # np.save(path+'ba_static' + '_n' + str(nodesnum) + '_k' + str(k) + '.npy', mAdj)
-    # np.save(path+'rr_static' + '_n' + str(nodesnum) + '_k' + str(k) + '.npy', mAdj)
+    np.save(path+'ba_static' + '_n' + str(nodesnum) + '_k' + str(k) + '.npy', mAdj)
+    np.save(path+'rr_static' + '_n' + str(nodesnum) + '_k' + str(k) + '.npy', mAdj)
 
     # %% ------- temporal network generate: randomly edge sample -------
 
@@ -39,3 +39,4 @@ if __name__ == "__main__":
         file = path + 'ba_temp_snap' + str(snap_length) + '_n' + str(nodesnum) + '_k' + str(k) + "_p" + str(
             p) + '.npy'
         np.save(file, snap_mat)
+
