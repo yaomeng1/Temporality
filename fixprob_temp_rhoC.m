@@ -6,7 +6,7 @@ tic
 warning('off');
 global k_ini n ratio
 
-load('re_200_k6_4_snapmatrix.mat');
+load('rr_200_k6_4_snapmatrix.mat');
 limit_idx = 100;
 
 delta=0.01;
@@ -130,3 +130,4 @@ end
 sf_fixprob_b = [b_array;p_final_fix_sf];
 
 % save('./re_fixprob_b_array_dt_g1e3.mat','sf_fixprob_b');
+
